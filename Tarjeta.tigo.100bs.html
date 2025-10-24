@@ -552,7 +552,24 @@ transform: rotate(270deg); /* gira el texto verticalmente */
 // Verificar si ya se visitó la página
 // Verificar si ya se visitó la página
 
+    if(localStorage.getItem('yaaVisto') === 'si') {
+    // Mostrar SweetAlert y ocultar contenido
+    Swal.fire({
+        icon: 'warning',
+        title: 'Tarjeta ya utilizada',
+        text: 'Esta tarjeta Tigo ya ha sido utilizada anteriormente',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#4a5dd3'
+    }).then(() => {
+        // Ocultar todo después de cerrar el alert
+        document.body.innerHTML = '<div style=" color:white;text-align:center; padding:50px; font-family:Arial;"><h1>Tarjeta no disponible</h1></div>';
+    });
+} else {
+    // Marcar como visitado
+    localStorage.setItem('yaVisto', 'si');
     
+    // Tu código normal continúa aquí...
+   
     // Tu código normal continúa aquí...
    
     
